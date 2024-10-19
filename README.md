@@ -1,15 +1,25 @@
-# API Starter kit
 
-## Changes
+# API Starter Kit
+This starter project uses Laravel Framework 11.28.1
 
-- Set the `SESSION_DRIVER` to `array` to enforce stateless behaviour in the API.
+# Changelog
+All notable changes to this project will be documented in this file.
 
-## Scripts
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-This repository comes with some pre-defined composer scripts to help you keep your code in check:
+## [1.0.1] - 2024-10-19
+### Added
+- Added SemVer compliant changelog.
+- Updated composer packages.
 
-- `composer lint` Run Laravel Pint in test mode on your code.
-- `composer pint` Run Laravel Pint in fix mode on your code.
-- `composer stan` Run PHPStan on your code for static analysis.
-- `composer test` Run PestPHP on your code for your test suite.
+## [1.0.0] - 2024-10-12
+### Added
+- Pre-defined composer scripts:
+    - `composer lint`: Run Laravel Pint in test mode on your code.
+    - `composer pint`: Run Laravel Pint in fix mode on your code.
+    - `composer stan`: Run PHPStan for static analysis on your code.
+    - `composer test`: Run PestPHP on your test suite.
 
+### Changed
+- Set the `SESSION_DRIVER` to `array` to enforce stateless behavior in the API.
