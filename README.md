@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Registration feature test
 - Updated composer packages.
 - Improved folder naming
+- Added Azure Storage filesystem adapter
 
 
 ## [1.0.1] - 2024-10-19
