@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\V1\Auth;
 
-use App\Http\Requests\Auth\V1\RegistrationRequest;
-use App\Http\Responses\V1\TokenResponse;
 use App\Services\Authentication;
+use App\Http\Responses\V1\TokenResponse;
 use Illuminate\Contracts\Support\Responsable;
 use Symfony\Component\HttpFoundation\Response;
+use App\Http\Requests\V1\Auth\RegistrationRequest;
 
 final readonly class RegisterController
 {
@@ -25,8 +25,8 @@ final readonly class RegisterController
         );
 
         return new TokenResponse(
-            token: $token,
-            status: Response::HTTP_CREATED,
+            $token,
+            Response::HTTP_CREATED,
         );
     }
 }

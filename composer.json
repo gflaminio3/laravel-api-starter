@@ -1,5 +1,5 @@
 {
-  "name": "juststeveking/api-starter",
+  "name": "laravel/laravel",
   "type": "project",
   "description": "A Laravel starter kit for your next API.",
   "keywords": [
@@ -70,6 +70,9 @@
     ],
     "test": [
       "@php artisan test"
+    ],
+    "jwt-generate": [
+      "@php artisan jwt:secret -f"
     ]
   },
   "extra": {
