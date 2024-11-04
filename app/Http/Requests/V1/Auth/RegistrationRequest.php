@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Auth\V1;
 
-use App\Http\Payloads\Auth\V1\RegisterPayload;
 use App\Http\Requests\Concerns\RateLimited;
 use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Payloads\V1\Auth\RegisterPayload;
 
 final class RegistrationRequest extends FormRequest
 {
     use RateLimited;
 
-    /** @return array<string,array<int,string>> */
     public function rules(): array
     {
         return [
@@ -31,21 +30,20 @@ final class RegistrationRequest extends FormRequest
         );
     }
 
-    /** @return array<string,array<string,string>> */
     public function bodyParameters(): array
     {
         return [
             'name' => [
                 'description' => 'The name of the registering user.',
-                'example' => 'Jon Snow',
+                'example' => 'John Doe',
             ],
             'email' => [
                 'description' => 'The email of the registering user.',
-                'example' => 'jon.snow@thewall.io',
+                'example' => 'johndoe@example.com',
             ],
             'password' => [
                 'description' => 'The password of the registering user.',
-                'example' => 'super-secret-password',
+                'example' => 'your-password',
             ],
         ];
     }

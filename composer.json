@@ -11,6 +11,7 @@
   "license": "MIT",
   "require": {
     "php": "^8.3",
+    "azure-oss/storage": "^1.2",
     "laravel/framework": "^11.26",
     "laravel/tinker": "^2.10",
     "php-open-source-saver/jwt-auth": "^2.7",

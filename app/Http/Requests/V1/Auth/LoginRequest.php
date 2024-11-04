@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests\Auth\V1;
+namespace App\Http\Requests\V1\Auth;
 
-use App\Http\Payloads\Auth\V1\LoginPayload;
+use App\Http\Payloads\V1\Auth\LoginPayload;
 use App\Http\Requests\Concerns\RateLimited;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -12,7 +12,6 @@ final class LoginRequest extends FormRequest
 {
     use RateLimited;
 
-    /** @return array<string,array<int,string>> */
     public function rules(): array
     {
         return [
@@ -29,17 +28,16 @@ final class LoginRequest extends FormRequest
         );
     }
 
-    /** @return array<string,array<string,string>> */
     public function bodyParameters(): array
     {
         return [
             'email' => [
                 'description' => 'The email of the authenticating user.',
-                'example' => 'jon.snow@thewall.io',
+                'example' => 'johndoe@example.com',
             ],
             'password' => [
                 'description' => 'The password of the authenticating user.',
-                'example' => 'super-secret-password',
+                'example' => 'your-password',
             ],
         ];
     }

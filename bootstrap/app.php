@@ -11,7 +11,7 @@ return Application::configure(
 )->withRouting(
     api: __DIR__ . '/../routes/api/routes.php',
     commands: __DIR__ . '/../routes/console/routes.php',
-    health: '/up',
+    health: '/',
     apiPrefix: '',
 )->withMiddleware(
     callback: function (Middleware $middleware): void {},

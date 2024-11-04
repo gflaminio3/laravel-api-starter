@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Auth\V1;
+namespace App\Http\Controllers\V1\Auth;
 
-use App\Http\Requests\Auth\V1\LoginRequest;
-use App\Http\Responses\V1\TokenResponse;
 use App\Services\Authentication;
+use App\Http\Responses\V1\TokenResponse;
+use App\Http\Requests\V1\Auth\LoginRequest;
 use Illuminate\Contracts\Support\Responsable;
-use Illuminate\Validation\ValidationException;
 
 final readonly class LoginController
 {
@@ -16,7 +15,6 @@ final readonly class LoginController
         private Authentication $auth,
     ) {}
 
-    /** @throws ValidationException */
     public function __invoke(LoginRequest $request): Responsable
     {
         $request->ensureIsNotRateLimited();

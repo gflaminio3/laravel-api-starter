@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Http\Payloads\Auth\V1\LoginPayload;
-use App\Http\Payloads\Auth\V1\RegisterPayload;
+use Throwable;
+
 use App\Models\User;
 
 use function array_merge;
-
+use PHPOpenSourceSaver\JWTAuth\JWTAuth;
 use Illuminate\Contracts\Hashing\Hasher;
 use Illuminate\Database\DatabaseManager;
+use App\Http\Payloads\V1\Auth\LoginPayload;
+use App\Http\Payloads\V1\Auth\RegisterPayload;
 use Illuminate\Validation\ValidationException;
-use PHPOpenSourceSaver\JWTAuth\JWTAuth;
-use Throwable;
 
 final readonly class Authentication
 {
@@ -34,7 +34,7 @@ final readonly class Authentication
     /** @throws ValidationException|Throwable */
     public function register(RegisterPayload $payload): string
     {
-        $user = $this->database->transaction(
+        $this->database->transaction(
             callback: fn() => User::query()->create(
                 attributes: array_merge(
                     $payload->toArray(),
