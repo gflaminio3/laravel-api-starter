@@ -23,8 +23,6 @@ final readonly class LoginController
             payload: $request->payload(),
         );
 
-        return new TokenResponse(
-            token: $token,
-        );
+        return new TokenResponse($token);
     }
 }

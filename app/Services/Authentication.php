@@ -26,10 +26,19 @@ final readonly class Authentication
 
     public function login(LoginPayload $payload): string
     {
-        return $this->guard->attempt(
+        $token = $this->guard->attempt(
             credentials: $payload->toArray(),
         );
+
+        if ($token === false) {
+            throw ValidationException::withMessages([
+                'credentials' => ['Invalid credentials provided.'],
+            ]);
+        }
+
+        return $token;
     }
+
 
     /** @throws ValidationException|Throwable */
     public function register(RegisterPayload $payload): string
